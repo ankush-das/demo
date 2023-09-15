@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="card-container" *ngFor="let cycle of newdata">
+        <div class="card">
+            <ul>
+                <li><strong>ID:</strong> {{ cycle.id }}</li>
+                <li><strong>Brand:</strong> {{ cycle.brand }}</li>
+                <li><strong>Color:</strong> {{ cycle.color }}</li>
+                <li><strong>Available:</strong> {{ cycle.available}}</li>
+            </ul>
+            <button (click)="rentCycle(cycle.id)" class="btn btn-rent">Rent</button>
+        </div>
+    </div>
+</body>
+
+</html>

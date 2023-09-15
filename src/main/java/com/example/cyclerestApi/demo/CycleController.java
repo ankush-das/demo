@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.annotation.PostConstruct;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/cycles")
 public class CycleController {
 
@@ -45,7 +47,6 @@ public class CycleController {
         borrowedCycleList = new ArrayList<>();
         availablecycleList = new ArrayList<>();
         cycleRepo.findAll().forEach(c -> cycleList.add(c));
-
     }
 
     @GetMapping("/cycleshop")
@@ -218,6 +219,20 @@ public class CycleController {
 
         return ResponseEntity.ok(stockInfo);
     }
+
+    // @PostMapping("/{id}/restock")
+
+    // public ResponseEntity<String> restockCycle(@PathVariable long id,
+    // @RequestBody Map<String, Integer> requestData) {
+
+    // int count = requestData.getOrDefault("count", 1);
+
+    // cycleService.restockBy(id, count);
+
+    // return ResponseEntity.status(HttpStatus.OK).body("Cycle restocked
+    // successfully");
+
+    // }
 
     @GetMapping("/registration")
     public String registrationForm(Model model) {

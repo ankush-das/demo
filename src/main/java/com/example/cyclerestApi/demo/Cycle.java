@@ -21,4 +21,14 @@ public class Cycle {
 
     private boolean available;
 
+    private int stock;
+
+    private int numBorrowed;
+
+    public int getNumAvailable() {
+
+        return stock - numBorrowed;
+
+    }
+
 }

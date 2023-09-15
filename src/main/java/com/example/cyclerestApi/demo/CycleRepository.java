@@ -8,4 +8,5 @@ public interface CycleRepository extends CrudRepository<Cycle, Integer> {
     Cycle findById(int id);
 
     List<Cycle> findByAvailable(boolean b);
+
 }

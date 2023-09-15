@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="./cycle-form.component.css"> <!-- Add this line to link the CSS file -->
+</head>
+
+<body>
+    <div>'
+        <div class="form-container">
+            <form (submit)="submitForm()">
+                <div class="form-group">
+                    <label for="brand">Cycle Brand:</label>
+                    <input type="text" id="brand" name="brand" class="form-control" [(ngModel)]="cycleBrand" required />
+                </div>
+                <div class="form-group">
+                    <label for="color">Cycle Color:</label>
+                    <input type="text" id="color" name="color" class="form-control" [(ngModel)]="cycleColor" required />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <div class="card-container" *ngFor="let cycle of newdata">
+            <div class="card">
+                <ul>
+                    <li><strong>ID:</strong> {{ cycle.id }}</li>
+                    <li><strong>Brand:</strong> {{ cycle.brand }}</li>
+                    <li><strong>Color:</strong> {{ cycle.color }}</li>
+                    <li><strong>Available:</strong> {{ cycle.available}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
